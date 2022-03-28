@@ -48,6 +48,15 @@ export default function App() {
       color: 'purple',
       id: index,
     });
+
+    // To display notification at a specific time
+    PushNotification.localNotificationSchedule({
+      channelId: 'test-channel',
+      title: 'Alarm',
+      message: 'You clicked on ' + item.country + ' 20 seconds ago',
+      date: new Date(Date.now() + 20 * 1000), // 20 seconds after notification
+      allowWhileIdle: true, // displayed when device is idle
+    });
   };
 
   return (
